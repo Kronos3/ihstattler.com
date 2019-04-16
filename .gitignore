@@ -1,2 +1,4 @@
 venv/*
 ihstattler/ihstattler/secrets.py
+logs/*
+
