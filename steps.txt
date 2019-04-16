@@ -1,0 +1,46 @@
+POSTGRES
+sudo apt-get install postgres libpq-dev
+
+sudo useradd postgres
+sudo su - postgres
+
+initdb --pgdata=/var/lib/pgsql/data
+systemctl start postgres
+
+psql
+CREATE DATABASE ihstattler;
+CREATE USER editor WITH PASSWORD 'pass';
+ALTER ROLE editor SET client_encoding TO 'utf8';
+ALTER ROLE editor SET default_transaction_isolation TO 'read committed';
+ALTER ROLE editor SET timezone TO 'UTC';
+
+GRANT ALL PRIVILEGES ON DATABASE ihstattler TO editor;
+
+DJANGO
+sudo yum install python3 python3-dev
+
+cd ~
+
+mkdir ihstattler.com
+cd ihstattler.com
+
+cd /usr/bin
+sudo rm python
+sudo ln -sf python3 python
+
+cd ~/ihstattler.com
+
+virtualenv --python=python3 venv
+source venv/bin/activate
+
+pip install django gunicorn
+
+CREATE THE secrets file
+
+
+NGINX
+sudo apt-get install nginx
+cp nginx /etc/nginx/nginx.conf
+
+# Copy service to
+/etc/systemd/system/gunicorn_ihstattler.service
