@@ -49,38 +49,19 @@ class Term(models.Model):
         return term
 
 
-class ImageItem(models.Model):
-    title = models.CharField(max_length=32)
-    link = models.CharField(max_length=32)
-    pub_date = models.DateField()
-    post_date = models.DateField()
-    attachment_url = models.URLField()
-
-    @staticmethod
-    def parse(element):
-        item = ImageItem(element.find("./title").text,
-                         element.find("./link").text,
-                         element.find("./pubDate").text,
-                         element.find("./post_id").text,
-                         element.find("./post_date").text,
-                         element.find("./attachment_url").text)
-        item.save()
-        return item
-
-
 class Profile(models.Model):
     nice_name = models.CharField(max_length=64)
     human_name = models.CharField(max_length=64)
 
 
-class PostItem(models.Model):
-
+class Item(models.Model):
     title = models.CharField(max_length=32)
     link = models.CharField(max_length=32)
     pub_date = models.DateField()
     encoded_content = models.TextField()
     post_id = models.IntegerField()
     post_date = models.DateField()
+    attachment_url = models.CharField(max_length=256, null=True)
 
     category = models.ForeignKey(Tag, on_delete=models.CASCADE, related_name="category_tag", null=True)
     post_tag = models.ForeignKey(Tag, on_delete=models.CASCADE, related_name="article_tag", null=True)
@@ -92,6 +73,7 @@ class PostItem(models.Model):
         post_tag = None
         byline = []
         encoded_content = element.find("./content:encoded").text
+        attachment_url = None
         for cat in element.findAll("./category"):
             if cat.attrib["domain"] == "category":
                 try:
@@ -117,18 +99,39 @@ class PostItem(models.Model):
             meta_key = meta.find("meta_key").text
             if meta_key.startswith("_oembed_") and not meta_key.startswith("_oembed_time_"):
                 encoded_content = meta.find("meta_value").text
+            elif meta_key == "_wp_attached_file":
+                attachment_url = meta.find("meta_value").text
 
-        item = PostItem(title=element.find("./title").text,
-                        link=element.find("./link").text,
-                        pub_date=element.find("./pubDate").text,
-                        encoded_content=encoded_content,
-                        post_id=element.find("./post_id").text,
-                        post_date=element.find("./post_date").text,
-                        category=tag,
-                        post_tag=post_tag,
-                        byline=byline
-
-        )
+        item = Item(title=element.find("./title").text,
+                    link=element.find("./link").text,
+                    pub_date=element.find("./pubDate").text,
+                    encoded_content=encoded_content,
+                    post_id=element.find("./post_id").text,
+                    post_date=element.find("./post_date").text,
+                    category=tag,
+                    post_tag=post_tag,
+                    byline=byline,
+                    attachment_url=attachment_url
+                    )
         item.save()
         return item
 
+
+def parse(to_parse):
+    import xml.etree.ElementTree as ET
+    tree = ET.parse('TattlerWordpressRecent.xml')
+    root = tree.getroot()
+    content = root[0]
+
+    if to_parse == "tags":
+        for tag in content.findAll("./tag"):
+            Tag.parse(tag)
+    elif to_parse == "category":
+        for cat in content.findAll("./category"):
+            Category.parse(cat)
+    elif to_parse == "term":
+        for term in content.findAll("./term"):
+            Term.parse(term)
+    elif to_parse == "item":
+        for item in content.findAll("./item"):
+            Item.parse(item)
