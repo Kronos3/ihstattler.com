@@ -2,10 +2,10 @@ from django.db import models
 
 
 class Category(models.Model):
-    term_id = models.IntegerField()
-    nice_name = models.CharField(max_length=32)
-    cat_parent = models.CharField(max_length=32)
-    cat_name = models.CharField(max_length=32)
+    term_id = models.CharField(max_length=128)
+    nice_name = models.CharField(max_length=64)
+    cat_parent = models.CharField(max_length=64)
+    cat_name = models.CharField(max_length=64)
 
     @staticmethod
     def parse(element):
@@ -18,9 +18,9 @@ class Category(models.Model):
 
 
 class Tag(models.Model):
-    term_id = models.IntegerField()
-    slug = models.CharField(max_length=32)
-    name = models.CharField(max_length=32)
+    term_id = models.CharField(max_length=128)
+    slug = models.CharField(max_length=64)
+    name = models.CharField(max_length=64)
 
     @staticmethod
     def parse(element):
@@ -32,11 +32,11 @@ class Tag(models.Model):
 
 
 class Term(models.Model):
-    term_id = models.IntegerField()
-    taxonomy = models.CharField(max_length=32)
-    slug = models.CharField(max_length=32)
-    parent = models.CharField(max_length=32)
-    name = models.CharField(max_length=32)
+    term_id = models.CharField(max_length=128)
+    taxonomy = models.CharField(max_length=64)
+    slug = models.CharField(max_length=64)
+    parent = models.CharField(max_length=64)
+    name = models.CharField(max_length=64)
 
     @staticmethod
     def parse(element):
@@ -55,8 +55,8 @@ class Profile(models.Model):
 
 
 class Item(models.Model):
-    title = models.CharField(max_length=32)
-    link = models.CharField(max_length=32)
+    title = models.TextField()
+    link = models.CharField(max_length=256)
     pub_date = models.DateField()
     encoded_content = models.TextField()
     post_id = models.IntegerField()
