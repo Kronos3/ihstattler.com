@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils.dateparse import parse_datetime
 
 class Category(models.Model):
     term_id = models.CharField(max_length=128)
@@ -60,7 +60,7 @@ class Item(models.Model):
     pub_date = models.DateField()
     encoded_content = models.TextField()
     post_id = models.IntegerField()
-    post_date = models.DateField()
+    post_date = models.DateTimeField()
     attachment_url = models.CharField(max_length=256, null=True)
 
     category = models.ForeignKey(Tag, on_delete=models.CASCADE, related_name="category_tag", null=True)
@@ -72,9 +72,10 @@ class Item(models.Model):
         tag = None
         post_tag = None
         byline = []
-        encoded_content = element.find("./content:encoded").text
+        print(element.findall("./content_encoded"))
+        encoded_content = element.find("./content_encoded").text
         attachment_url = None
-        for cat in element.findAll("./category"):
+        for cat in element.findall("./category"):
             if cat.attrib["domain"] == "category":
                 try:
                     tag = Tag.objects.get(nice_name=cat.attrib["nicename"])
@@ -95,7 +96,7 @@ class Item(models.Model):
                     print("Post Tag %s not found" % cat.attrib["nicename"])
                     post_tag = None
 
-        for meta in element.findAll("postmeta"):
+        for meta in element.findall("postmeta"):
             meta_key = meta.find("meta_key").text
             if meta_key.startswith("_oembed_") and not meta_key.startswith("_oembed_time_"):
                 encoded_content = meta.find("meta_value").text
@@ -104,16 +105,16 @@ class Item(models.Model):
 
         item = Item(title=element.find("./title").text,
                     link=element.find("./link").text,
-                    pub_date=element.find("./pubDate").text,
+                    pub_date=parse_datetime(element.find("./pubDate").text),
                     encoded_content=encoded_content,
                     post_id=element.find("./post_id").text,
-                    post_date=element.find("./post_date").text,
+                    post_date=parse_datetime(element.find("./post_date").text),
                     category=tag,
                     post_tag=post_tag,
-                    byline=byline,
                     attachment_url=attachment_url
                     )
         item.save()
+        item.byline.set(byline)
         return item
 
 
@@ -124,14 +125,14 @@ def parse(to_parse):
     content = root[0]
 
     if to_parse == "tags":
-        for tag in content.findAll("./tag"):
+        for tag in content.findall("./tag"):
             Tag.parse(tag)
     elif to_parse == "category":
-        for cat in content.findAll("./category"):
+        for cat in content.findall("./category"):
             Category.parse(cat)
     elif to_parse == "term":
-        for term in content.findAll("./term"):
+        for term in content.findall("./term"):
             Term.parse(term)
     elif to_parse == "item":
-        for item in content.findAll("./item"):
+        for item in content.findall("./item"):
             Item.parse(item)
