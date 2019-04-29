@@ -1,5 +1,6 @@
 from django.db import models
-from django.utils.dateparse import parse_datetime
+from datetime import datetime
+
 
 class Category(models.Model):
     term_id = models.CharField(max_length=128)
@@ -105,10 +106,10 @@ class Item(models.Model):
 
         item = Item(title=element.find("./title").text,
                     link=element.find("./link").text,
-                    pub_date=parse_datetime(element.find("./pubDate").text),
+                    pub_date=datetime.strptime(element.find("./pubDate").text, "%a, %d %b %Y %H:%M:%S %z"),
                     encoded_content=encoded_content,
                     post_id=element.find("./post_id").text,
-                    post_date=parse_datetime(element.find("./post_date").text),
+                    post_date=datetime.strptime(element.find("./post_date").text, "%a, %d %b %Y %H:%M:%S %z"),
                     category=tag,
                     post_tag=post_tag,
                     attachment_url=attachment_url
