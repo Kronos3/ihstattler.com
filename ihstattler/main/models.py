@@ -4,8 +4,8 @@ from datetime import datetime
 
 class Category(models.Model):
     term_id = models.CharField(max_length=128)
-    nice_name = models.CharField(max_length=64)
-    cat_parent = models.CharField(max_length=64)
+    nice_name = models.CharField(max_length=64, null=True)
+    cat_parent = models.CharField(max_length=64, null=True)
     cat_name = models.CharField(max_length=64)
 
     @staticmethod
@@ -13,7 +13,7 @@ class Category(models.Model):
         category = Category(element.find("./term_id").text,
                             element.find("./category_nicename").text,
                             element.find("category_parent").text,
-                            element.find("./cat_name)").text)
+                            element.find("./cat_name").text)
         category.save()
         return category
 
@@ -25,9 +25,10 @@ class Tag(models.Model):
 
     @staticmethod
     def parse(element):
-        tag = Tag(element.find("./term_id").text,
-                  element.find("./tag_slug").text,
-                  element.find("./tag_name"))
+        print(element.find("./tag_name").text)
+        tag = Tag(term_id=element.find("./term_id").text,
+                  slug=element.find("./tag_slug").text,
+                  name=element.find("./tag_name").text)
         tag.save()
         return tag
 
@@ -35,16 +36,17 @@ class Tag(models.Model):
 class Term(models.Model):
     term_id = models.CharField(max_length=128)
     taxonomy = models.CharField(max_length=64)
-    slug = models.CharField(max_length=64)
-    parent = models.CharField(max_length=64)
+    slug = models.CharField(max_length=64, null=True)
+    parent = models.CharField(max_length=64, null=True)
     name = models.CharField(max_length=64)
 
     @staticmethod
     def parse(element):
+        parent = element.find("./term_parent")
         term = Term(element.find("./term_id").text,
                     element.find("./term_taxonomy").text,
                     element.find("./term_slug").text,
-                    element.find("./term_parent").text,
+                    parent.text if parent is not None else None,
                     element.find("./term_name").text)
         term.save()
         return term
@@ -56,10 +58,10 @@ class Profile(models.Model):
 
 
 class Item(models.Model):
-    title = models.TextField()
+    title = models.TextField(null=True)
     link = models.CharField(max_length=256)
     pub_date = models.DateField()
-    encoded_content = models.TextField()
+    encoded_content = models.TextField(null=True)
     post_id = models.IntegerField()
     post_date = models.DateTimeField()
     attachment_url = models.CharField(max_length=256, null=True)
@@ -73,16 +75,15 @@ class Item(models.Model):
         tag = None
         post_tag = None
         byline = []
-        print(element.findall("./content_encoded"))
         encoded_content = element.find("./content_encoded").text
         attachment_url = None
         for cat in element.findall("./category"):
             if cat.attrib["domain"] == "category":
                 try:
-                    tag = Tag.objects.get(nice_name=cat.attrib["nicename"])
+                    tag = Tag.objects.get(slug=cat.attrib["nicename"])
                 except Tag.objects.model.DoesNotExist:
-                    print("Tag %s not found" % cat.attrib["nicename"])
-                    tag = None
+                    tag = Tag(term_id="000", slug=cat.attrib["nicename"], name=cat.attrib["nicename"].capitalize())
+                    tag.save()
             if cat.attrib["domain"] == "byline":
                 try:
                     current_byline = Profile.objects.get(nice_name=cat.attrib["nicename"])
@@ -92,10 +93,10 @@ class Item(models.Model):
                 byline.append(current_byline)
             if cat.attrib["domain"] == "post_tag":
                 try:
-                    post_tag = Tag.objects.get(nice_name=cat.attrib["nicename"])
+                    post_tag = Tag.objects.get(slug=cat.attrib["nicename"])
                 except Tag.objects.model.DoesNotExist:
-                    print("Post Tag %s not found" % cat.attrib["nicename"])
-                    post_tag = None
+                    tag = Tag(term_id="000", slug=cat.attrib["nicename"], name=cat.attrib["nicename"].capitalize())
+                    tag.save()
 
         for meta in element.findall("postmeta"):
             meta_key = meta.find("meta_key").text
@@ -109,7 +110,7 @@ class Item(models.Model):
                     pub_date=datetime.strptime(element.find("./pubDate").text, "%a, %d %b %Y %H:%M:%S %z"),
                     encoded_content=encoded_content,
                     post_id=element.find("./post_id").text,
-                    post_date=datetime.strptime(element.find("./post_date").text, "%a, %d %b %Y %H:%M:%S %z"),
+                    post_date=datetime.strptime(element.find("./post_date").text + " +0400", "%Y-%m-%d %H:%M:%S %z"),
                     category=tag,
                     post_tag=post_tag,
                     attachment_url=attachment_url
