@@ -2,19 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e2dc140-3626-487e-9f2c-f4de66f7b103" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/ihstattler/main/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihstattler/templates/article.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihstattler/TattlerWordpressRecent.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ihstattler/TattlerWordpressRecent.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihstattler/ihstattler/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ihstattler/ihstattler/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihstattler/main/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/ihstattler/main/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihstattler/main/migrations/0002_auto_20190422_0216.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihstattler/main/migrations/0003_auto_20190422_0217.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihstattler/main/migrations/0004_auto_20190422_0217.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihstattler/main/migrations/0005_auto_20190422_0218.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihstattler/main/migrations/0006_auto_20190422_0222.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihstattler/ihstattler/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ihstattler/ihstattler/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ihstattler/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ihstattler/main/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ihstattler/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ihstattler/main/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihstattler/templates/article.html" beforeDir="false" afterPath="$PROJECT_DIR$/ihstattler/templates/article.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,8 +20,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ihstattler/main/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="98" column="30" selection-start-line="98" selection-start-column="30" selection-end-line="98" selection-end-column="30" />
+            <state relative-caret-position="15">
+              <caret line="77" column="18" selection-start-line="77" selection-start-column="18" selection-end-line="77" selection-end-column="18" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -40,7 +32,7 @@
       <file leaf-file-name="TattlerWordpressRecent.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ihstattler/TattlerWordpressRecent.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
+            <state relative-caret-position="15">
               <caret line="402" column="16" selection-start-line="402" selection-start-column="9" selection-end-line="402" selection-end-column="16" />
             </state>
           </provider>
@@ -54,9 +46,10 @@
       <file leaf-file-name="article.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ihstattler/templates/article.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6390">
-              <caret line="426" column="9" selection-start-line="426" selection-start-column="9" selection-end-line="426" selection-end-column="9" />
+            <state relative-caret-position="290">
+              <caret line="256" column="23" lean-forward="true" selection-start-line="256" selection-start-column="23" selection-end-line="256" selection-end-column="23" />
               <folding>
+                <element signature="e#15572#15578#1" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
@@ -66,8 +59,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ihstattler/main/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+            <state relative-caret-position="180">
+              <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -90,8 +83,8 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ihstattler/main/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+            <state relative-caret-position="45">
+              <caret line="6" column="39" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="39" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -102,8 +95,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ihstattler/ihstattler/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1875">
-              <caret line="126" column="23" selection-start-line="126" selection-start-column="23" selection-end-line="126" selection-end-column="23" />
+            <state relative-caret-position="855">
+              <caret line="58" column="28" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="28" />
               <folding>
                 <element signature="e#309#318#0" expanded="true" />
               </folding>
@@ -132,6 +125,12 @@
       <find>article</find>
       <find>article.tit</find>
       <find>Wed, 30 Nov -0001 00:00:00 +0000</find>
+      <find>TEMPLATE</find>
+      <find>encode</find>
+      <find>Tag</find>
+      <find>c</find>
+      <find>&lt;a href=&quot;http://www.ihstattler.com/blog/category/features/</find>
+      <find>{{</find>
     </findStrings>
     <replaceStrings>
       <replace>Wed, 30 Nov 2011 00:00:00 +0000</replace>
@@ -143,13 +142,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ihstattler/ihstattler/settings.py" />
-        <option value="$PROJECT_DIR$/ihstattler/templates/article.html" />
         <option value="$PROJECT_DIR$/ihstattler/ihstattler/urls.py" />
-        <option value="$PROJECT_DIR$/ihstattler/main/views.py" />
         <option value="$PROJECT_DIR$/ihstattler/main/urls.py" />
         <option value="$PROJECT_DIR$/ihstattler/TattlerWordpressRecent.xml" />
+        <option value="$PROJECT_DIR$/ihstattler/ihstattler/settings.py" />
+        <option value="$PROJECT_DIR$/ihstattler/main/views.py" />
         <option value="$PROJECT_DIR$/ihstattler/main/models.py" />
+        <option value="$PROJECT_DIR$/ihstattler/templates/article.html" />
       </list>
     </option>
   </component>
@@ -244,7 +243,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="833" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="833" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -253,8 +252,8 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32880434" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29256082" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32880434" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3004292" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="4" />
@@ -277,6 +276,29 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/ihstattler/main/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ihstattler/ihstattler/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1875">
+          <caret line="126" column="23" selection-start-line="126" selection-start-column="23" selection-end-line="126" selection-end-column="23" />
+          <folding>
+            <element signature="e#309#318#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ihstattler/main/apps.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/ihstattler/main/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1500">
@@ -295,6 +317,7 @@
         <state relative-caret-position="6390">
           <caret line="426" column="9" selection-start-line="426" selection-start-column="9" selection-end-line="426" selection-end-column="9" />
           <folding>
+            <element signature="e#15572#15578#1" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
@@ -398,6 +421,7 @@
         <state relative-caret-position="6390">
           <caret line="426" column="9" lean-forward="true" selection-start-line="426" selection-start-column="9" selection-end-line="426" selection-end-column="9" />
           <folding>
+            <element signature="e#15572#15578#1" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
@@ -452,6 +476,7 @@
         <state relative-caret-position="4005">
           <caret line="267" column="74" lean-forward="true" selection-start-line="267" selection-start-column="74" selection-end-line="267" selection-end-column="74" />
           <folding>
+            <element signature="e#15572#15578#1" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
@@ -597,26 +622,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ihstattler/templates/article.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6390">
-          <caret line="426" column="9" selection-start-line="426" selection-start-column="9" selection-end-line="426" selection-end-column="9" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ihstattler/main/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ihstattler/ihstattler/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -627,46 +632,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ihstattler/main/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ihstattler/main/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/ihstattler/manage.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/ihstattler/main/apps.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ihstattler/main/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="6" column="39" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ihstattler/ihstattler/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1875">
-          <caret line="126" column="23" selection-start-line="126" selection-start-column="23" selection-end-line="126" selection-end-column="23" />
+        <state relative-caret-position="855">
+          <caret line="58" column="28" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="28" />
           <folding>
             <element signature="e#309#318#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ihstattler/main/apps.py">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/ihstattler/main/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ihstattler/TattlerWordpressRecent.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
+        <state relative-caret-position="15">
           <caret line="402" column="16" selection-start-line="402" selection-start-column="9" selection-end-line="402" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ihstattler/templates/article.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="256" column="23" lean-forward="true" selection-start-line="256" selection-start-column="23" selection-end-line="256" selection-end-column="23" />
+          <folding>
+            <element signature="e#15572#15578#1" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="43" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ihstattler/main/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="98" column="30" selection-start-line="98" selection-start-column="30" selection-end-line="98" selection-end-column="30" />
+        <state relative-caret-position="15">
+          <caret line="77" column="18" selection-start-line="77" selection-start-column="18" selection-end-line="77" selection-end-column="18" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>

@@ -70,6 +70,13 @@ class Item(models.Model):
     post_tag = models.ForeignKey(Tag, on_delete=models.CASCADE, related_name="article_tag", null=True)
     byline = models.ManyToManyField(Profile)
 
+    def get_content(self):
+        splt = self.encoded_content.split("\n")
+        out = ""
+        for line in splt:
+            out += "<p>%s</p>" % line
+        return out
+
     @staticmethod
     def parse(element):
         tag = None

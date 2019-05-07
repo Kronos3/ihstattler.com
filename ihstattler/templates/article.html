@@ -244,13 +244,13 @@
                                                         rel="author"><a
                             href="http://www.ihstattler.com/blog/byline/{{article.byline.nice_name}}/"
                             rel="tag">{{article.byline.human_name}}</a></a></span> / <a
-                            href="http://www.ihstattler.com/blog/category/features/" rel="category tag">{{article.category}}</a> /
+                            href="http://www.ihstattler.com/blog/category/features/" rel="category tag">{{article.category.nice_name}}</a> /
                         <time pubdate="pubdate">{{pubdate}}</time>
                     </p>
                 </header>
                 <p>&nbsp;</p>
 
-                {{article.encoded_content}}
+                {{article.get_content|safe}}
 
                 <div class="zem_rp_wrap zem_rp_th_momma" id="zem_rp_first">
                     <div class="zem_rp_content"><h3 class="related_post_title"><br><br>Related<br></h3>
