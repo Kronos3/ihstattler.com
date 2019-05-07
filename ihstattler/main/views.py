@@ -14,3 +14,10 @@ def article(request, article_id):
         return HttpResponse(code=404)
     return render(request, "article.html", context={'article': resolved_article,
                                                          'pubdate': resolved_article.pub_date.strftime("%B %Y")})
+
+def home(request):
+    try:
+        recent_list = Item.objects.filter(testfield=12).order_by('-id')[:1]
+    except Item.objects.model.DoesNotExist:
+        return HttpResponse(code=404)
+    return render(request, "home.html", context={'home': recent_list})
